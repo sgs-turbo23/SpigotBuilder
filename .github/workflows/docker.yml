@@ -31,3 +31,4 @@ jobs:
           # Dokcerfileのパス
           context: .
           push: true
+          tag: sgs-turbo23/spigot_build:latest
