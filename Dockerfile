@@ -3,6 +3,7 @@ LABEL org.opencontainers.image.authors="https://github.com/sgs-turbo23" \
     org.opencontainers.image.source="https://github.com/sgs-turbo23/SpigotBuilder"
 
 COPY command.sh /command.sh
+# wgetとgitをインストール
 RUN apk update \
     && apk upgrade \
     && apk add wget git \
