@@ -7,10 +7,13 @@ on:
     paths:
         - "Dockerfile"
         - "command.sh"
+        - "docker.yml"
 jobs:
   push_to_registry:
     name: Push Docker image to GitHub Packages
     runs-on: ubuntu-latest
+    env:
+      IMAGE_NAME: spigot_build
     steps:
       -
         name: Check out the repo
@@ -31,6 +34,4 @@ jobs:
           # Dokcerfileのパス
           context: .
           push: true
-          tags: |
-            ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:latest
-            ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:1.0.0
+          tags: ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:latest
