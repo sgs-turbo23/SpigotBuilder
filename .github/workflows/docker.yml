@@ -1,0 +1,33 @@
+name: Publish Docker image
+on:
+  push:
+    # mainブランチにDockerfileなどがpushされた時に動作
+    branches:
+      - "main"
+    paths:
+        - "Dockerfile"
+        - "command.sh"
+jobs:
+  push_to_registry:
+    name: Push Docker image to GitHub Packages
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Check out the repo
+        uses: actions/checkout@v2
+      -
+        # GitHub Container Registry にログインする
+        name: Login to GHCR
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GHCR_TOKEN }}      # secretで作成したものを指定
+      -
+        # イメージビルドしてGitHub Container Registry に pushする
+        name: Push to GitHub Packages
+        uses: docker/build-push-action@v2
+        with:
+          # Dokcerfileのパス
+          context: .
+          push: true

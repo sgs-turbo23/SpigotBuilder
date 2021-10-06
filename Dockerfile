@@ -1,5 +1,6 @@
 FROM openjdk:17-alpine
-LABEL Maintainer=https://github.com/sgs-turbo23
+LABEL org.opencontainers.image.authors="https://github.com/sgs-turbo23" \
+    org.opencontainers.image.source="https://github.com/sgs-turbo23/SpigotBuilder"
 
 COPY command.sh /command.sh
 RUN apk update \
