@@ -1,6 +1,8 @@
 # SpigotBuilder
 Minecraftサーバー用ソフト、Spigotの最新版を作成するdocker image
 
+[![Publish Docker image](https://github.com/sgs-turbo23/SpigotBuilder/actions/workflows/docker.yml/badge.svg?branch=main&event=push)](https://github.com/sgs-turbo23/SpigotBuilder/actions/workflows/docker.yml)
+
 ## 使用方法
 
 docker for Windowsが稼働している状態で、Powershellで以下コマンドを実行してください
