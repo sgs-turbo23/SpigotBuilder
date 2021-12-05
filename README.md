@@ -7,6 +7,7 @@ Minecraftサーバー用ソフト、Spigotの最新版を作成するdocker imag
 
 docker for Windowsが稼働している状態で、Powershellで以下コマンドを実行してください
 ```
+docker login ghcr.io -u <githubアカウント> -p <アクセストークン>
 $cd = Convert-Path .
 docker run -it --mount type=bind,source=$cd,target=/bind ghcr.io/sgs-turbo23/spigot_build:latest
 ```
